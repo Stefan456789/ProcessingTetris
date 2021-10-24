@@ -14,6 +14,7 @@ public class Main extends PApplet {
     public void draw(){
         background(64);
         main.frameRate(4);
+
         if(mousePressed){
                 Block.newBlock();
 
@@ -25,9 +26,12 @@ public class Main extends PApplet {
 
     public static void main(String[] passedArgs) {
         String[] appletArgs = {"Main"};
-        
+
         PApplet.runSketch(appletArgs, main);
     }
 
 
+    public void square(float x, float y, float size) {
+        rect(x,y,size,size);
+    }
 }
