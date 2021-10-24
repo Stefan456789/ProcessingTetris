@@ -6,6 +6,7 @@ public class Block{
     public static final float blocksize = Main.width/10f;
 
     private BlockType type;
+    private int rotation = 0;
     private Position pos;
 
     private static final Main main = Main.main;
@@ -26,54 +27,49 @@ public class Block{
         }
         switch (type){
             case BLOCK:
-                //Main.MAIN.ellipse(Main.MAIN.mouseX, Main.MAIN.mouseY, 20, 20);
-                //Main.MAIN.square(pos.x * Main.width / 10f, pos.y * Main.height / 10f, Main.height / 10f);
-
-
-
-                main.square(blocksize/2f + pos.getX()-blocksize/2f, pos.getY()-blocksize/2f, blocksize);
-                main.square(blocksize/2f + pos.getX()-blocksize/2f, pos.getY()+blocksize/2f, blocksize);
+                main.square(blocksize/2f + pos.getX()-blocksize/2f, pos.getY()-blocksize/2f, blocksize);// 1 2
+                main.square(blocksize/2f + pos.getX()-blocksize/2f, pos.getY()+blocksize/2f, blocksize);// 4 3
                 main.square(blocksize/2f + pos.getX()+blocksize/2f, pos.getY()+blocksize/2f, blocksize);
                 main.square(blocksize/2f + pos.getX()+blocksize/2f, pos.getY()-blocksize/2f, blocksize);
                 break;
             case ISHAPE:
-                main.square(blocksize/2f + pos.getX()-blocksize/2f*3, pos.getY()-blocksize/2f, blocksize);
+                main.square(blocksize/2f + pos.getX()-blocksize/2f*3, pos.getY()-blocksize/2f, blocksize);// 1 2 3 4
                 main.square(blocksize/2f + pos.getX()-blocksize/2f, pos.getY()-blocksize/2f, blocksize);
                 main.square(blocksize/2f + pos.getX()+blocksize/2f, pos.getY()-blocksize/2f, blocksize);
                 main.square(blocksize/2f + pos.getX()+blocksize/2f*3, pos.getY()-blocksize/2f, blocksize);
                 break;
             case TSHAPE:
-                main.square(blocksize/2f + pos.getX()-blocksize/2f*3, pos.getY()-blocksize/2f, blocksize);
-                main.square(blocksize/2f + pos.getX()-blocksize/2f, pos.getY()-blocksize/2f, blocksize);
+                main.square(blocksize/2f + pos.getX()-blocksize/2f*3, pos.getY()-blocksize/2f, blocksize);// 1 2 3
+                main.square(blocksize/2f + pos.getX()-blocksize/2f, pos.getY()-blocksize/2f, blocksize);//     4
                 main.square(blocksize/2f + pos.getX()+blocksize/2f, pos.getY()-blocksize/2f, blocksize);
-                main.square(blocksize/2f + pos.getX()-blocksize/2f*3, pos.getY()+blocksize/2f, blocksize);
+                main.square(blocksize/2f + pos.getX()-blocksize/2f, pos.getY()+blocksize/2f, blocksize);
                 break;
             case LSHAPELEFT:
-                main.square(blocksize/2f + pos.getX()-blocksize/2f*3, pos.getY()-blocksize/2f, blocksize);
-                main.square(blocksize/2f + pos.getX()-blocksize/2f*1, pos.getY()-blocksize/2f, blocksize);
+                main.square(blocksize/2f + pos.getX()-blocksize/2f*3, pos.getY()-blocksize/2f, blocksize);// 1 2 3
+                main.square(blocksize/2f + pos.getX()-blocksize/2f*1, pos.getY()-blocksize/2f, blocksize);//     4
                 main.square(blocksize/2f + pos.getX()+blocksize/2f, pos.getY()-blocksize/2f, blocksize);
                 main.square(blocksize/2f + pos.getX()+blocksize/2f, pos.getY()+blocksize/2f, blocksize);
                 break;
             case ZSHAPELEFT:
-                main.square(blocksize/2f + pos.getX()-blocksize/2f*3, pos.getY()+blocksize/2f, blocksize);
-                main.square(blocksize/2f + pos.getX()-blocksize/2f, pos.getY()+blocksize/2f, blocksize);
+                main.square(blocksize/2f + pos.getX()-blocksize/2f*3, pos.getY()+blocksize/2f, blocksize);//   3 4
+                main.square(blocksize/2f + pos.getX()-blocksize/2f, pos.getY()+blocksize/2f, blocksize);//   1 2
                 main.square(blocksize/2f + pos.getX()-blocksize/2f, pos.getY()-blocksize/2f, blocksize);
                 main.square(blocksize/2f + pos.getX()+blocksize/2f, pos.getY()-blocksize/2f, blocksize);
                 break;
             case LSHAPERIGHT:
-                main.square(blocksize/2f + pos.getX()-blocksize/2f*3, pos.getY()+blocksize/2f, blocksize);
-                main.square(blocksize/2f + pos.getX()-blocksize/2f*1, pos.getY()+blocksize/2f, blocksize);
+                main.square(blocksize/2f + pos.getX()-blocksize/2f*3, pos.getY()+blocksize/2f, blocksize);//     4
+                main.square(blocksize/2f + pos.getX()-blocksize/2f, pos.getY()+blocksize/2f, blocksize);//   1 2 3
                 main.square(blocksize/2f + pos.getX()+blocksize/2f, pos.getY()+blocksize/2f, blocksize);
                 main.square(blocksize/2f + pos.getX()+blocksize/2f, pos.getY()-blocksize/2f, blocksize);
                 break;
             case ZSHAPERIGHT:
-                main.square(blocksize/2f + pos.getX()-blocksize/2f*3, pos.getY()-blocksize/2f, blocksize);
-                main.square(blocksize/2f + pos.getX()-blocksize/2f, pos.getY()+blocksize/2f, blocksize);
+                main.square(blocksize/2f + pos.getX()-blocksize/2f*3, pos.getY()-blocksize/2f, blocksize);// 1 3
+                main.square(blocksize/2f + pos.getX()-blocksize/2f, pos.getY()+blocksize/2f, blocksize);//     2 4
                 main.square(blocksize/2f + pos.getX()-blocksize/2f, pos.getY()-blocksize/2f, blocksize);
                 main.square(blocksize/2f + pos.getX()+blocksize/2f, pos.getY()+blocksize/2f, blocksize);
                 break;
         }
-        //pos.moveDown();
+        pos.moveDown();
     }
 
     public static void newBlock(){ block = new Block();}
